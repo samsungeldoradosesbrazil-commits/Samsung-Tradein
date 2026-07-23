@@ -1,103 +1,63 @@
-const modelos = [
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samsung Trade In</title>
 
-{
-nome:"FLIP 8 256GB",
-semTrade:8199,
-comTrade:7199,
-imagem:"flip8.png",
-cores:"Pink • Grafite • Creme",
-seguros:`
-Garantia Estendida: R$ 629<br>
-Quebra: R$ 799<br>
-Roubo: R$ 949<br>
-Combo: R$ 1.199
-`,
-cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
-},
-
-{
-nome:"FLIP 8 512GB",
-semTrade:8999,
-comTrade:7999,
-imagem:"flip8.png",
-cores:"Pink • Grafite • Creme",
-seguros:`
-Garantia Estendida: R$ 629<br>
-Quebra: R$ 799<br>
-Roubo: R$ 949<br>
-Combo: R$ 1.199
-`,
-cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
-},
-
-{
-nome:"FOLD 8 256GB",
-semTrade:11599,
-comTrade:10099,
-imagem:"fold8.png",
-cores:"Lavanda • Grafite • Creme",
-seguros:`
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-`,
-cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
-},
-
-{
-nome:"FOLD 8 512GB",
-semTrade:12399,
-comTrade:10899,
-imagem:"fold8.png",
-cores:"Lavanda • Grafite • Creme",
-seguros:`
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-`,
-cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
-},
-
-{
-nome:"FOLD 8 ULTRA 256GB",
-semTrade:12599,
-comTrade:11099,
-imagem:"fold8ultra.png",
-cores:"Violeta • Grafite • Lavanda",
-seguros:`
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-`,
-cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
-},
-
-{
-nome:"FOLD 8 ULTRA 512GB",
-semTrade:13399,
-comTrade:12199,
-imagem:"fold8ultra.png",
-cores:"Violeta • Grafite • Lavanda",
-seguros:`
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-`,
-cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
-},
-
-{
-nome:"FOLD 8 ULTRA 1TB",
-semTrade:15799,
-comTrade:14299,
-imagem:"fold8ultra.png",
-cores:"Violeta • Grafite • Lavanda",
-seguros:`
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-`,
-cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-];
+body{
+background:#f4f6fb;
+padding:15px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.header{
+background:#fff;
+padding:25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.logo{
+width:250px;
+max-width:90%;
+margin-bottom:15px;
+}
+
+.header h1{
+color:#1428A0;
+margin-bottom:8px;
+}
+
+.header p{
+color:#666;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:18px;
