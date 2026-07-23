@@ -6,149 +6,133 @@
 <title>Samsung Trade In</title>
 
 <style>
-
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-  background:#f4f6fb;
-  padding:15px;
+    background:#f4f6fb;
+    padding:15px;
 }
 
 .container{
-  max-width:800px;
-  margin:auto;
+    max-width:800px;
+    margin:auto;
 }
 
 .header{
-  background:#fff;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  margin-bottom:20px;
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
 }
 
 .logo{
-  width:250px;
-  max-width:90%;
-  margin-bottom:15px;
+    width:220px;
+    max-width:90%;
+    margin-bottom:15px;
 }
 
 .header h1{
-  color:#1428A0;
-  margin-bottom:5px;
+    color:#1428A0;
+    margin-bottom:5px;
 }
 
 .header p{
-  color:#666;
+    color:#666;
 }
 
 .card{
-  background:#fff;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  margin-bottom:20px;
+    background:#fff;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
 }
 
 label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:10px;
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
 }
 
 input{
-  width:100%;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:18px;
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:18px;
 }
 
 button{
-  width:100%;
-  padding:15px;
-  border:none;
-  border-radius:12px;
-  background:#1428A0;
-  color:#fff;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:15px;
-}
-
-button:hover{
-  background:#0d1d77;
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    background:#1428A0;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
 }
 
 .modelo{
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
 .modelo h3{
-  margin-bottom:10px;
-  color:#111;
+    margin-bottom:10px;
 }
 
 .valor{
-  margin:8px 0;
-}
-
-.semtrade{
-  font-size:17px;
+    margin:8px 0;
 }
 
 .comtrade{
-  font-size:22px;
-  font-weight:bold;
-  color:#00752f;
+    color:#007a2f;
+    font-size:22px;
+    font-weight:bold;
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-  <div class="header">
+    <div class="header">
 
-    <img
-      class="logo"
-      src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
-      alt="Samsung">
+        <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+        alt="Samsung">
 
-    <h1>Calculadora Trade In</h1>
+        <h1>Calculadora Trade In</h1>
 
-    <p>8 Ultra
-    </p>
+        <p>Galaxy Z Flip 8 • Galaxyss="card">
 
-  </div>
+        <label>Valor da Avaliação do Aparelho</label>
 
-  <div class="card">
+        <input
+        type="number"
+        id="avaliacao"
+        placeholder="Digite o valor da avaliação">
 
-    <label>Valor da Avaliação do Aparelho</label>
+        <button onclick="calcular()">
+            Calcular
+        </button>
 
-    <input
-      id="avaliacao"
-      type="number"
-      placeholder="Digite o valor da avaliação">
+    </div>
 
-    <button onclick="calcular()">
-      Calcular
-    </button>
-
-  </div>
-
-  <div id="resultados"></div>
+    <div id="resultados"></div>
 
 </div>
 
@@ -160,106 +144,99 @@ const modelos = [
 nome:"FLIP 8 256GB",
 semTrade:8199,
 comTrade:7199,
-cor:"linear-gradient(135deg,#ffd7e8,#ff87c0)"
+cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
 },
-
 {
 nome:"FLIP 8 512GB",
 semTrade:8999,
 comTrade:7999,
-cor:"linear-gradient(135deg,#ffd7e8,#ff87c0)"
+cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
 },
-
 {
 nome:"FOLD 8 256GB",
 semTrade:11599,
 comTrade:10099,
-cor:"linear-gradient(135deg,#f8ebcd,#d7b06e)"
+cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
 },
-
 {
 nome:"FOLD 8 512GB",
 semTrade:12399,
 comTrade:10899,
-cor:"linear-gradient(135deg,#f8ebcd,#d7b06e)"
+cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
 },
-
 {
 nome:"FOLD 8 ULTRA 256GB",
 semTrade:12599,
 comTrade:11099,
-cor:"linear-gradient(135deg,#ddd4ff,#8e75ff)"
+cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 },
-
 {
 nome:"FOLD 8 ULTRA 512GB",
 semTrade:13399,
 comTrade:12199,
-cor:"linear-gradient(135deg,#ddd4ff,#8e75ff)"
+cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 },
-
 {
 nome:"FOLD 8 ULTRA 1TB",
 semTrade:15799,
 comTrade:14299,
-cor:"linear-gradient(135deg,#ddd4ff,#8e75ff)"
+cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 }
 
 ];
 
 function moeda(valor){
-  return valor.toLocaleString(
-    "pt-BR",
-    {
-      style:"currency",
-      currency:"BRL"
-    }
-  );
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
 }
 
 function calcular(){
 
-  const avaliacao =
-  Number(document.getElementById("avaliacao").value) || 0;
+    const avaliacao =
+    Number(document.getElementById("avaliacao").value) || 0;
 
-  let html = "";
+    let html = "";
 
-  modelos.forEach(modelo => {
+    modelos.forEach(modelo => {
 
-    let valorFinal =
-    modelo.comTrade - avaliacao;
+        let valorFinal =
+        modelo.comTrade - avaliacao;
 
-    if(valorFinal < 0){
-      valorFinal = 0;
-    }
+        if(valorFinal < 0){
+            valorFinal = 0;
+        }
 
-    html += `
-      <div
-        class="modelo"
-        style="background:${modelo.cor};">
+        html += `
+        <div class="modelo"
+             style="background:${modelo.cor}">
+             
+            <h3>${modelo.nome}</h3>
 
-        <h3>${modelo.nome}</h3>
+            <div class="valor">
+                Sem Trade In:
+                <strong>${moeda(modelo.semTrade)}</strong>
+            </div>
 
-        <div class="valor semtrade">
-          Sem Trade In:
-          <strong>${moeda(modelo.semTrade)}</strong>
+            <div class="valor">
+                Avaliação:
+                <strong>${moeda(avaliacao)}</strong>
+            </div>
+
+            <div class="valor comtrade">
+                Com Trade In:
+                ${moeda(valorFinal)}
+            </div>
+
         </div>
+        `;
+    });
 
-        <div class="valor">
-          Avaliação:
-          <strong>${moeda(avaliacao)}</strong>
-        </div>
-
-        <div class="valor comtrade">
-          Com Trade In:
-          ${moeda(valorFinal)}
-        </div>
-
-      </div>
-    `;
-  });
-
-  document.getElementById("resultados").innerHTML = html;
+    document.getElementById("resultados").innerHTML = html;
 }
 
 calcular();
