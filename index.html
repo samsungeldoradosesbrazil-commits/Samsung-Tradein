@@ -1,247 +1,103 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samsung Trade In</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f6fb;
-    padding:15px;
-}
-
-.container{
-    max-width:800px;
-    margin:auto;
-}
-
-.header{
-    background:#fff;
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-
-.logo{
-    width:220px;
-    max-width:90%;
-    margin-bottom:15px;
-}
-
-.header h1{
-    color:#1428A0;
-    margin-bottom:5px;
-}
-
-.header p{
-    color:#666;
-}
-
-.card{
-    background:#fff;
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    margin-bottom:10px;
-    font-weight:bold;
-}
-
-input{
-    width:100%;
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:18px;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    margin-top:15px;
-    background:#1428A0;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-.modelo{
-    padding:18px;
-    border-radius:18px;
-    margin-bottom:15px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
-
-.modelo h3{
-    margin-bottom:10px;
-}
-
-.valor{
-    margin:8px 0;
-}
-
-.comtrade{
-    color:#007a2f;
-    font-size:22px;
-    font-weight:bold;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <div class="header">
-
-        <img
-        class="logo"
-        src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
-        alt="Samsung">
-
-        <h1>Calculadora Trade In</h1>
-
-        <p>Galaxy Z Flip 8 • Galaxyss="card">
-
-        <label>Valor da Avaliação do Aparelho</label>
-
-        <input
-        type="number"
-        id="avaliacao"
-        placeholder="Digite o valor da avaliação">
-
-        <button onclick="calcular()">
-            Calcular
-        </button>
-
-    </div>
-
-    <div id="resultados"></div>
-
-</div>
-
-<script>
-
 const modelos = [
 
 {
 nome:"FLIP 8 256GB",
 semTrade:8199,
 comTrade:7199,
+imagem:"flip8.png",
+cores:"Pink • Grafite • Creme",
+seguros:`
+Garantia Estendida: R$ 629<br>
+Quebra: R$ 799<br>
+Roubo: R$ 949<br>
+Combo: R$ 1.199
+`,
 cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
 },
+
 {
 nome:"FLIP 8 512GB",
 semTrade:8999,
 comTrade:7999,
+imagem:"flip8.png",
+cores:"Pink • Grafite • Creme",
+seguros:`
+Garantia Estendida: R$ 629<br>
+Quebra: R$ 799<br>
+Roubo: R$ 949<br>
+Combo: R$ 1.199
+`,
 cor:"linear-gradient(135deg,#ffd8ea,#ff7bb8)"
 },
+
 {
 nome:"FOLD 8 256GB",
 semTrade:11599,
 comTrade:10099,
+imagem:"fold8.png",
+cores:"Lavanda • Grafite • Creme",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`,
 cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
 },
+
 {
 nome:"FOLD 8 512GB",
 semTrade:12399,
 comTrade:10899,
+imagem:"fold8.png",
+cores:"Lavanda • Grafite • Creme",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`,
 cor:"linear-gradient(135deg,#f8ebcb,#d7b170)"
 },
+
 {
 nome:"FOLD 8 ULTRA 256GB",
 semTrade:12599,
 comTrade:11099,
+imagem:"fold8ultra.png",
+cores:"Violeta • Grafite • Lavanda",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`,
 cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 },
+
 {
 nome:"FOLD 8 ULTRA 512GB",
 semTrade:13399,
 comTrade:12199,
+imagem:"fold8ultra.png",
+cores:"Violeta • Grafite • Lavanda",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`,
 cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 },
+
 {
 nome:"FOLD 8 ULTRA 1TB",
 semTrade:15799,
 comTrade:14299,
+imagem:"fold8ultra.png",
+cores:"Violeta • Grafite • Lavanda",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`,
 cor:"linear-gradient(135deg,#e2daff,#8c73ff)"
 }
 
 ];
-
-function moeda(valor){
-    return valor.toLocaleString(
-        "pt-BR",
-        {
-            style:"currency",
-            currency:"BRL"
-        }
-    );
-}
-
-function calcular(){
-
-    const avaliacao =
-    Number(document.getElementById("avaliacao").value) || 0;
-
-    let html = "";
-
-    modelos.forEach(modelo => {
-
-        let valorFinal =
-        modelo.comTrade - avaliacao;
-
-        if(valorFinal < 0){
-            valorFinal = 0;
-        }
-
-        html += `
-        <div class="modelo"
-             style="background:${modelo.cor}">
-             
-            <h3>${modelo.nome}</h3>
-
-            <div class="valor">
-                Sem Trade In:
-                <strong>${moeda(modelo.semTrade)}</strong>
-            </div>
-
-            <div class="valor">
-                Avaliação:
-                <strong>${moeda(avaliacao)}</strong>
-            </div>
-
-            <div class="valor comtrade">
-                Com Trade In:
-                ${moeda(valorFinal)}
-            </div>
-
-        </div>
-        `;
-    });
-
-    document.getElementById("resultados").innerHTML = html;
-}
-
-calcular();
-
-</script>
-
-</body>
-</html>
