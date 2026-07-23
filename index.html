@@ -71,13 +71,47 @@ button:hover {
   margin-bottom: 20px;
   box-shadow: 0 3px 10px rgba(0,0,0,.08);
 }
- 
+
+/* Novo layout para Imagem + Preço de Lançamento lado a lado */
+.produto-topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
 .produto-img {
   width: 100%;
-  max-width: 260px;
+  max-width: 220px;
   display: block;
-  margin: auto;
-  margin-bottom: 15px;
+}
+
+.lancamento-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(20, 40, 160, 0.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.lancamento-box h4 {
+  font-size: 14px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.lancamento-box ul {
+  list-style: none;
+}
+
+.lancamento-box li {
+  font-size: 15px;
+  color: #1428A0;
+  margin-bottom: 4px;
 }
  
 table {
@@ -162,9 +196,20 @@ function calcular() {
   const ultra1tb = Math.max(0, 14299 - avaliacao);
  
   document.getElementById("resultados").innerHTML = `
+    <!-- GALAXY Z FLIP 8 -->
     <div class="modelo" style="background:linear-gradient(135deg,#ffd8ea,#ff85bb)">
-      <img src="flip8.jpg" alt="Galaxy Z Flip 8" class="produto-img">
       <h2>Galaxy Z Flip 8</h2>
+      
+      <div class="produto-topo">
+        <img src="flip8.jpg" alt="Galaxy Z Flip 8" class="produto-img">
+        <div class="lancamento-box">
+          <h4>Preços de Lançamento</h4>
+          <ul>
+            <li><b>256GB:</b> ${moeda(9199)}</li>
+            <li><b>512GB:</b> ${moeda(10799)}</li>
+          </ul>
+        </div>
+      </div>
       
       <div class="info-box">
         <b>Cores:</b><br>Pink • Grafite • Creme
@@ -173,25 +218,39 @@ function calcular() {
       <table>
         <tr>
           <th>Modelo</th>
+          <th>Lançamento</th>
           <th>Sem Tradein</th>
           <th>Com Tradein</th>
         </tr>
         <tr>
           <td>256GB</td>
+          <td>${moeda(9199)}</td>
           <td>${moeda(8199)}</td>
           <td>${moeda(flip256)}</td>
         </tr>
         <tr>
           <td>512GB</td>
+          <td>${moeda(10799)}</td>
           <td>${moeda(8999)}</td>
           <td>${moeda(flip512)}</td>
         </tr>
       </table>
     </div>
  
+    <!-- GALAXY Z FOLD 8 -->
     <div class="modelo" style="background:linear-gradient(135deg,#f6e7c7,#d7b06d)">
-      <img src="fold8.webp" alt="Galaxy Z Fold 8" class="produto-img">
       <h2>Galaxy Z Fold 8</h2>
+
+      <div class="produto-topo">
+        <img src="fold8.webp" alt="Galaxy Z Fold 8" class="produto-img">
+        <div class="lancamento-box">
+          <h4>Preços de Lançamento</h4>
+          <ul>
+            <li><b>256GB:</b> ${moeda(12599)}</li>
+            <li><b>512GB:</b> ${moeda(14199)}</li>
+          </ul>
+        </div>
+      </div>
  
       <div class="info-box">
         <b>Cores:</b><br>Lavanda • Grafite • Creme
@@ -200,25 +259,40 @@ function calcular() {
       <table>
         <tr>
           <th>Modelo</th>
+          <th>Lançamento</th>
           <th>Sem Tradein</th>
           <th>Com Tradein</th>
         </tr>
         <tr>
           <td>256GB</td>
+          <td>${moeda(12599)}</td>
           <td>${moeda(11599)}</td>
           <td>${moeda(fold256)}</td>
         </tr>
         <tr>
           <td>512GB</td>
+          <td>${moeda(14199)}</td>
           <td>${moeda(12399)}</td>
           <td>${moeda(fold512)}</td>
         </tr>
       </table>
     </div>
  
+    <!-- GALAXY Z FOLD 8 ULTRA -->
     <div class="modelo" style="background:linear-gradient(135deg,#e0d8ff,#8a74ff)">
-      <img src="fold8-ultra.webp" alt="Galaxy Z Fold 8 Ultra" class="produto-img">
       <h2>Galaxy Z Fold 8 Ultra</h2>
+
+      <div class="produto-topo">
+        <img src="fold8-ultra.webp" alt="Galaxy Z Fold 8 Ultra" class="produto-img">
+        <div class="lancamento-box">
+          <h4>Preços de Lançamento</h4>
+          <ul>
+            <li><b>256GB:</b> ${moeda(14599)}</li>
+            <li><b>512GB:</b> ${moeda(16199)}</li>
+            <li><b>1TB:</b> ${moeda(19399)}</li>
+          </ul>
+        </div>
+      </div>
  
       <div class="info-box">
         <b>Cores:</b><br>Violeta • Grafite • Lavanda
@@ -227,21 +301,25 @@ function calcular() {
       <table>
         <tr>
           <th>Modelo</th>
+          <th>Lançamento</th>
           <th>Sem Tradein</th>
           <th>Com Tradein</th>
         </tr>
         <tr>
           <td>256GB</td>
+          <td>${moeda(14599)}</td>
           <td>${moeda(12599)}</td>
           <td>${moeda(ultra256)}</td>
         </tr>
         <tr>
           <td>512GB</td>
+          <td>${moeda(16199)}</td>
           <td>${moeda(13399)}</td>
           <td>${moeda(ultra512)}</td>
         </tr>
         <tr>
           <td>1TB</td>
+          <td>${moeda(19399)}</td>
           <td>${moeda(15799)}</td>
           <td>${moeda(ultra1tb)}</td>
         </tr>
