@@ -61,3 +61,322 @@ padding:15px;
 border:1px solid #ccc;
 border-radius:10px;
 font-size:18px;
+}
+
+button{
+width:100%;
+margin-top:15px;
+padding:15px;
+background:#1428A0;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.modelo{
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.modelo h3{
+margin-bottom:10px;
+}
+
+.produto-img{
+width:100%;
+max-width:260px;
+display:block;
+margin:0 auto 15px;
+}
+
+.valor{
+margin:8px 0;
+}
+
+.info-box{
+background:rgba(255,255,255,.55);
+padding:12px;
+border-radius:12px;
+margin-top:10px;
+}
+
+.comtrade{
+font-size:24px;
+font-weight:bold;
+color:#007a2f;
+}
+
+.parcela{
+font-weight:bold;
+}
+
+.titulo-box{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+@media(max-width:600px){
+.produto-img{
+max-width:200px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+class="logo"
+alt="Samsung">
+
+<h1>Calculadora Trade In</d 8 • Galaxy Z Fold 8 Ultra
+</p>
+
+</div>
+
+<div class="card">
+
+<label><b>Valor da Avaliação do Aparelho</b></label>
+
+<input
+type="number"
+id="avaliacao"
+placeholder="Digite a avaliação">
+
+<button onclick="calcular()">
+Calcular
+</button>
+
+</div>
+
+<div id="resultados"></div>
+
+</div>
+
+<script>
+
+const modelos = [
+
+{
+nome:"FLIP 8 256GB",
+semTrade:8199,
+comTrade:7199,
+imagem:"flip8.jpg",
+cores:"Pink • Grafite • Creme",
+cor:"linear-gradient(135deg,#ffd8ea,#ff84bb)",
+seguros:`
+Garantia Estendida: R$ 629<br>
+Quebra: R$ 799<br>
+Roubo: R$ 949<br>
+Combo: R$ 1.199
+`
+},
+
+{
+nome:"FLIP 8 512GB",
+semTrade:8999,
+comTrade:7999,
+imagem:"flip8.jpg",
+cores:"Pink • Grafite • Creme",
+cor:"linear-gradient(135deg,#ffd8ea,#ff84bb)",
+seguros:`
+Garantia Estendida: R$ 629<br>
+Quebra: R$ 799<br>
+Roubo: R$ 949<br>
+Combo: R$ 1.199
+`
+},
+
+{
+nome:"FOLD 8 256GB",
+semTrade:11599,
+comTrade:10099,
+imagem:"fold8.webp",
+cores:"Lavanda • Grafite • Creme",
+cor:"linear-gradient(135deg,#f5e8ca,#d8b272)",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`
+},
+
+{
+nome:"FOLD 8 512GB",
+semTrade:12399,
+comTrade:10899,
+imagem:"fold8.webp",
+cores:"Lavanda • Grafite • Creme",
+cor:"linear-gradient(135deg,#f5e8ca,#d8b272)",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`
+},
+
+{
+nome:"FOLD 8 ULTRA 256GB",
+semTrade:12599,
+comTrade:11099,
+imagem:"fold8 ultra.webp",
+cores:"Violeta • Grafite • Lavanda",
+cor:"linear-gradient(135deg,#e6deff,#8a73ff)",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`
+},
+
+{
+nome:"FOLD 8 ULTRA 512GB",
+semTrade:13399,
+comTrade:12199,
+imagem:"fold8 ultra.webp",
+cores:"Violeta • Grafite • Lavanda",
+cor:"linear-gradient(135deg,#e6deff,#8a73ff)",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`
+},
+
+{
+nome:"FOLD 8 ULTRA 1TB",
+semTrade:15799,
+comTrade:14299,
+imagem:"fold8 ultra.webp",
+cores:"Violeta • Grafite • Lavanda",
+cor:"linear-gradient(135deg,#e6deff,#8a73ff)",
+seguros:`
+Quebra: R$ 1.239<br>
+Roubo: R$ 3.099<br>
+Combo: R$ 3.899
+`
+}
+
+];
+
+function moeda(valor){
+return valor.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+});
+}
+
+function calcular(){
+
+const avaliacao =
+Number(document.getElementById("avaliacao").value) || 0;
+
+let html="";
+
+modelos.forEach(modelo=>{
+
+let valorFinal =
+modelo.comTrade - avaliacao;
+
+if(valorFinal < 0){
+valorFinal = 0;
+}
+
+const parcela6 =
+valorFinal / 6;
+
+const parcela10 =
+valorFinal / 10;
+
+html += `
+
+<div
+class="modelo"
+style="background:${modelo.cor}">
+
+<img
+src="${modelo.imagem}"
+class="produto-img"
+alt="${modelo.nome}">
+
+<h3>${modelo.nome}</h3>
+
+<div class="info-box">
+
+<div class="titulo-box">
+Cores Disponíveis
+</div>
+
+${modelo.cores}
+
+</div>
+
+<div class="valor">
+Sem Trade In:
+<strong>${moeda(modelo.semTrade)}</strong>
+</div>
+
+<div class="valor">
+Avaliação:
+<strong>${moeda(avaliacao)}</strong>
+</div>
+
+<div class="valor comtrade">
+Com Trade In:
+${moeda(valorFinal)}
+</div>
+
+<div class="info-box">
+
+<div class="titulo-box">
+Parcelamento
+</div>
+
+<div class="parcela">
+6x de ${moeda(parcela6)}
+</div>
+
+<div class="parcela">
+10x de ${moeda(parcela10)}
+</div>
+
+</div>
+
+<div class="info-box">
+
+<div class="titulo-box">
+Seguros
+</div>
+
+${modelo.seguros}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("resultados").innerHTML = html;
+
+}
+
+calcular();
+
+</script>
+
+</body>
+</html>
