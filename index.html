@@ -1,147 +1,146 @@
-function calcular(){
+function calcular() {
 
-const avaliacao =
-Number(document.getElementById("avaliacao").value) || 0;
+    const avaliacao =
+    Number(document.getElementById("avaliacao").value) || 0;
 
-const flip256 = Math.max(0,7199-avaliacao);
-const flip512 = Math.max(0,7999-avaliacao);
+    const flip256 = Math.max(0, 7199 - avaliacao);
+    const flip512 = Math.max(0, 7999 - avaliacao);
 
-const fold256 = Math.max(0,10099-avaliacao);
-const fold512 = Math.max(0,10899-avaliacao);
+    const fold256 = Math.max(0, 10099 - avaliacao);
+    const fold512 = Math.max(0, 10899 - avaliacao);
 
-const ultra256 = Math.max(0,11099-avaliacao);
-const ultra512 = Math.max(0,12199-avaliacao);
-const ultra1tb = Math.max(0,14299-avaliacao);
+    const ultra256 = Math.max(0, 11099 - avaliacao);
+    const ultra512 = Math.max(0, 12199 - avaliacao);
+    const ultra1tb = Math.max(0, 14299 - avaliacao);
 
-document.getElementById("resultados").innerHTML = `
+    document.getElementById("resultados").innerHTML = `
 
-<div class="modelo" style="background:linear-gradient(135deg,#ffd8ea,#ff85bb)">
+    <div class="modelo" style="background:linear-gradient(135deg,#ffd8ea,#ff85bb)">
 
-<img src="flip8.jpg" class="produto-img">
+        <img src="flip8.jpg" class="produto-img">
 
-<h2>Galaxy Z Flip 8</h2>
+        <h2>Galaxy Z Flip 8</h2>
 
-<div class="info-box">
-<b>Cores:</b><br>
-Pink • Grafite • Creme
-</div>
+        <div class="info-box">
+            <b>Cores:</b><br>
+            Pink • Grafite • Creme
+        </div>
 
-<table>
-<tr>
-<th>Modelo</th>
-<th>Sem TI</th>
-<th>Com TI</th>
-</tr>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Sem TI</th>
+                <th>Com TI</th>
+            </tr>
 
-<tr>
-<td>256GB</td>
-<td>${moeda(8199)}</td>
-<td>${moeda(flip256)}</td>
-</tr>
+            <tr>
+                <td>256GB</td>
+                <td>${moeda(8199)}</td>
+                <td>${moeda(flip256)}</td>
+            </tr>
 
-<tr>
-<td>512GB</td>
-<td>${moeda(8999)}</td>
-<td>${moeda(flip512)}</td>
-</tr>
-</table>
+            <tr>
+                <td>512GB</td>
+                <td>${moeda(8999)}</td>
+                <td>${moeda(flip512)}</td>
+            </tr>
+        </table>
 
-<div class="info-box">
-<b>Seguros</b><br>
-Garantia Estendida: R$ 629<br>
-Quebra: R$ 799<br>
-Roubo: R$ 949<br>
-Combo: R$ 1.199
-</div>
+        <div class="info-box">
+            <b>Seguros</b><br>
+            Garantia Estendida: R$ 629<br>
+            Quebra: R$ 799<br>
+            Roubo: R$ 949<br>
+            Combo: R$ 1.199
+        </div>
 
-</div>
+    </div>
 
-<div class="modelo" style="background:linear-gradient(135deg,#f6e7c7,#d7b06d)">
+    <div class="modelo" style="background:linear-gradient(135deg,#f6e7c7,#d7b06d)">
 
-<img src="fold8.webp" class="produto-img">
+        <img src="fold8.webp" class="produto-img">
 
-<h2>Galaxy Z Fold 8</h2>
+        <h2>Galaxy Z Fold 8</h2>
 
-<div class="info-box">
-<b>Cores:</b><br>
-Lavanda • Grafite • Creme
-</div>
+        <div class="info-box">
+            <b>Cores:</b><br>
+            Lavanda • Grafite • Creme
+        </div>
 
-<table>
-<tr>
-<th>Modelo</th>
-<th>Sem TI</th>
-<th>Com TI</th>
-</tr>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Sem TI</th>
+                <th>Com TI</th>
+            </tr>
 
-<tr>
-<td>256GB</td>
-<td>${moeda(11599)}</td>
-<td>${moeda(fold256)}</td>
-</tr>
+            <tr>
+                <td>256GB</td>
+                <td>${moeda(11599)}</td>
+                <td>${moeda(fold256)}</td>
+            </tr>
 
-<tr>
-<td>512GB</td>
-<td>${moeda(12399)}</td>
-<td>${moeda(fold512)}</td>
-</tr>
-</table>
+            <tr>
+                <td>512GB</td>
+                <td>${moeda(12399)}</td>
+                <td>${moeda(fold512)}</td>
+            </tr>
+        </table>
 
-<div class="info-box">
-<b>Seguros</b><br>
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-</div>
+        <div class="info-box">
+            <b>Seguros</b><br>
+            Quebra: R$ 1.239<br>
+            Roubo: R$ 3.099<br>
+            Combo: R$ 3.899
+        </div>
 
-</div>
+    </div>
 
-<div class="modelo" style="background:linear-gradient(135deg,#e0d8ff,#8a74ff)">
+    <div class="modelo" style="background:linear-gradient(135deg,#e0d8ff,#8a74ff)">
 
-fold8 ultra.webp
+        fold8 ultra.webp
 
-<h2>Galaxy Z Fold 8 Ultra</h2>
+        <h2>Galaxy Z Fold 8 Ultra</h2>
 
-<div class="info-box">
-<b>Cores:</b><br>
-Violeta • Grafite • Lavanda
-</div>
+        <div class="info-box">
+            <b>Cores:</b><br>
+            Violeta • Grafite • Lavanda
+        </div>
 
-<table>
-<tr>
-<th>Modelo</th>
-<th>Sem TI</th>
-<th>Com TI</th>
-</tr>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Sem TI</th>
+                <th>Com TI</th>
+            </tr>
 
-<tr>
-<td>256GB</td>
-<td>${moeda(12599)}</td>
-<td>${moeda(ultra256)}</td>
-</tr>
+            <tr>
+                <td>256GB</td>
+                <td>${moeda(12599)}</td>
+                <td>${moeda(ultra256)}</td>
+            </tr>
 
-<tr>
-<td>512GB</td>
-<td>${moeda(13399)}</td>
-<td>${moeda(ultra512)}</td>
-</tr>
+            <tr>
+                <td>512GB</td>
+                <td>${moeda(13399)}</td>
+                <td>${moeda(ultra512)}</td>
+            </tr>
 
-<tr>
-<td>1TB</td>
-<td>${moeda(15799)}</td>
-<td>${moeda(ultra1tb)}</td>
-</tr>
-</table>
+            <tr>
+                <td>1TB</td>
+                <td>${moeda(15799)}</td>
+                <td>${moeda(ultra1tb)}</td>
+            </tr>
+        </table>
 
-<div class="info-box">
-<b>Seguros</b><br>
-Quebra: R$ 1.239<br>
-Roubo: R$ 3.099<br>
-Combo: R$ 3.899
-</div>
+        <div class="info-box">
+            <b>Seguros</b><br>
+            Quebra: R$ 1.239<br>
+            Roubo: R$ 3.099<br>
+            Combo: R$ 3.899
+        </div>
 
-</div>
+    </div>
 
-`;
-
+    `;
 }
